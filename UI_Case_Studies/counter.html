@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Management App</title>
+    <style>
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+        .number {
+            width: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+        .row {
+            padding: 10px 15px;
+            font-size: 18px;
+            background-color: lightseagreen;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <span id="number" class="number">0</span>
+        <div class="row">Increment / Decrement by <input id="increment" type="number" min="1" max="10" value="1" />
+        </div>
+        <div class="row">
+            <button id="add" class="add">+</button>
+            <button id="subtract" class="subtract">-</button>
+        </div>
+        <button id="reset" class="reset">Reset</button>
+    </div>
+    <script>
+        let decrementBtn=document.getElementById('subtract');
+        let incrementBtn=document.getElementById('add');
+        let resetBtn=document.getElementById('reset');
+        let countDisplay=document.getElementById('number');
+        let inc_by=document.getElementById('increment');
+        let count=0;
+        decrementBtn.addEventListener('click',function(){
+            let getIncrementValue = parseInt(inc_by.value);
+                if(getIncrementValue>10)
+                {
+                    alert("value must be less than or equal to 10");
+                    return false;
+                }
+            if(count>0)
+            {
+                //count--;
+                count=count-parseInt(inc_by.value);
+                countDisplay.innerText=count;
+            }
+        })
+        incrementBtn.addEventListener('click',function(){
+            let getIncrementValue = parseInt(inc_by.value);
+                if(getIncrementValue>10)
+                {
+                    alert("value must be less than or equal to 10");
+                    return false;
+                }
+                //count++;
+                count=count+parseInt(inc_by.value);
+                countDisplay.innerText=count;
+        })
+        resetBtn.addEventListener('click',function(){
+                count=0;
+                countDisplay.innerText=count;
+        })
+
+    </script>
+</body>
+
+</html>
